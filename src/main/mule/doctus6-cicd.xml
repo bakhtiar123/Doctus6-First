@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="ab301b93-39ed-423d-8fbb-bc24f370b467" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="doctus6-cicdFlow" doc:id="0bad548f-b42f-4c4d-bc15-a5f06f3f00d2" >
+		<http:listener doc:name="Listener" doc:id="a4a1c754-4ad3-4bc4-8a1b-4aefa0265793" config-ref="HTTP_Listener_config" path="/cicd"/>
+		<logger level="INFO" doc:name="Logger" doc:id="41c1cf0f-9046-409b-91be-3a9091eca88b" message="Start of logger"/>
+		<set-payload value="Hello cicd world" doc:name="Set Payload" doc:id="68b5b64c-a95f-416e-9549-d48d6991e7c2" />
+	</flow>
+</mule>
